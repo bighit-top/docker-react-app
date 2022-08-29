@@ -15,8 +15,6 @@ script:
 after_success:
  - echo "Test success"
 
-
-# AWS Elastic Beanstalk
 deploy:
   adge: true
   provider: elasticbeanstalk
