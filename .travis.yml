@@ -3,17 +3,17 @@ sudo: required
 language: generic
 
 services:
- - docker
+  - docker
 
 before_install:
- - echo "start creating an image with dockerfile"
- - docker build -t top0830/docker-react-app -f Dockerfile.dev .
+  - echo "start creating an image with dockerfile"
+  - docker build -t top0830/docker-react-app -f Dockerfile.dev .
 
 script:
- - docker run -e CI=true top0830/docker-react-app npm run test -- --coverage
+  - docker run -e CI=true top0830/docker-react-app npm run test -- --coverage
 
 after_success:
- - echo "Test success"
+  - echo "Test success"
 
 deploy:
   adge: true
@@ -25,6 +25,5 @@ deploy:
   bucket_path: docker-react-app
   on:
     branch: master
-    
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
