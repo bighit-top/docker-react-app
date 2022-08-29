@@ -18,6 +18,7 @@ after_success:
 
 # AWS Elastic Beanstalk
 deploy:
+  adge: true
   provider: elasticbeanstalk
   region: ap-northeast-2
   app: docker-react-app
